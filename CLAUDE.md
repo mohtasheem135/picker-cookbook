@@ -1,8 +1,10 @@
 # picker-cookbook — agent contract
 
 Use-case cookbook and consumer-side test bed for the npm package
-`availability-datetime-picker` (installed from the packed tarball at
-`../availability-datetime-picker-0.1.0.tgz`). Every use case of the package
+`availability-datetime-picker`, whose source lives in the sibling folder
+`../availability-datetime-picker/` (this project installs its packed
+tarball, `../availability-datetime-picker/availability-datetime-picker-0.1.0.tgz`).
+Every use case of the package
 is documented as a live demo + honest code sample + prose guide.
 
 ## The docs-in-parallel rule (binding)
@@ -61,6 +63,7 @@ Concretely:
 - `npm run build` — production build; also the SSR/RSC gate for the package
 - `npm run typecheck` — TS against the tarball's shipped types
 
-After changing the package itself (in `..`): rebuild + `npm pack` there,
-then here `rm -rf node_modules package-lock.json && npm install` to pick up
-the fresh tarball, then `npm run build`, then log it in `docs/TEST-LOG.md`.
+After changing the package itself (in `../availability-datetime-picker`):
+rebuild + `npm pack` there, then here
+`rm -rf node_modules package-lock.json && npm install` to pick up the fresh
+tarball, then `npm run build`, then log it in `docs/TEST-LOG.md`.

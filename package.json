@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "availability-datetime-picker": "file:../availability-datetime-picker-0.1.0.tgz",
+    "availability-datetime-picker": "file:../availability-datetime-picker/availability-datetime-picker-0.1.0.tgz",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
