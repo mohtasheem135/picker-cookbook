@@ -11,6 +11,11 @@ availability enforced while picking. Desktop two-month popover; drawer under
 
 ## How to use it
 
+0. Flow: picking a pickup day preselects the first valid time and shows the
+   pickup slot list to adjust; picking a return day does the same for
+   return times. The slot panel always shows the endpoint that has a value
+   when the auto-advanced edit target doesn't yet (fixed 2026-07-15 — it
+   previously hid right after a day pick).
 1. Hold a `BookingValue` (`{ pickup, ret }`, each `Instant | null`) in state.
 2. Pass `blocks: RawBlockInput[]` (required — `[]` if none) and the
    resource's `timeZone`.
@@ -44,6 +49,9 @@ this wire format, typed via `BookingValueOf<F>`) · `config` · `onIssues` ·
 `layout: 'row'|'column'` · `disabled`/`disabledReason` ·
 `showZoneAbbreviation: 'auto'|'always'|'never'` ·
 `showFooter` (default true — phase/duration + Clear/Done bar) ·
+`showSlotHints` (default true — ⓘ hint on disabled slots) ·
+`slotHintLabels` (override hint text per `SlotDisabledReason`; defaults
+exported as `SLOT_REASON_LABELS`) ·
 `mobileBreakpointPx` (768) · `tabletBreakpointPx` (1024) · `className`
 
 ## Variations

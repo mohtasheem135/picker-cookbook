@@ -12,7 +12,8 @@ Live page: `/docs/api-reference`
 
 `BookingDateTimePicker` (BookingValue) · `SingleDateTimePicker`
 (Instant|null) · `SingleDatePicker` (DayKey|null) · `DateOnlyRangePicker`
-(DayRangeValue) · `SuggestionBanner`
+(DayRangeValue) · `SuggestionBanner` · `SLOT_REASON_LABELS` (default
+disabled-slot hint text per reason)
 
 ## Hooks
 

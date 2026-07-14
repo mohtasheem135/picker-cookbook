@@ -68,21 +68,45 @@ export default function Page() {
       <h2>The six slot-disabled reasons</h2>
       <table>
         <thead>
-          <tr><th>Reason</th><th>A slot is disabled because…</th></tr>
+          <tr><th>Reason</th><th>A slot is disabled because…</th><th>Default hint text</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>past</code></td><td>the instant already happened.</td></tr>
-          <tr><td><code>lead-time</code></td><td>it is earlier than <code>now + leadTimeMinutes</code>.</td></tr>
-          <tr><td><code>blocked</code></td><td>it falls inside a block (or its turnaround gap).</td></tr>
-          <tr><td><code>min-duration</code></td><td>no valid trip of <code>minRentalMinutes</code> fits from/to it.</td></tr>
-          <tr><td><code>beyond-clamp</code></td><td>it is past the last reachable return for the chosen pickup.</td></tr>
-          <tr><td><code>outside-window</code></td><td>it violates an explicit <code>window.min/max</code> bound.</td></tr>
+          <tr><td><code>past</code></td><td>the instant already happened.</td><td>Already passed</td></tr>
+          <tr><td><code>lead-time</code></td><td>it is earlier than <code>now + leadTimeMinutes</code>.</td><td>Too soon</td></tr>
+          <tr><td><code>blocked</code></td><td>it falls inside a block (or its turnaround gap).</td><td>Unavailable</td></tr>
+          <tr><td><code>min-duration</code></td><td>no valid trip of <code>minRentalMinutes</code> fits from/to it.</td><td>Trip too short</td></tr>
+          <tr><td><code>beyond-clamp</code></td><td>it is past the last reachable return for the chosen pickup.</td><td>Conflicts with the next booking</td></tr>
+          <tr><td><code>outside-window</code></td><td>it violates an explicit <code>window.min/max</code> bound.</td><td>Outside the allowed period</td></tr>
         </tbody>
       </table>
       <p>
         Every <code>Slot</code> carries <code>{'{ disabled, reason }'}</code>,
         so a custom UI built on the <a href='/docs/headless-hooks'>headless
         hooks</a> can explain itself exactly like the styled components do.
+        In the styled pickers the hint text appears in the ⓘ tooltip
+        (customize with <code>slotHintLabels</code>, hide with{' '}
+        <code>showSlotHints=&#123;false&#125;</code>; defaults exported as{' '}
+        <code>SLOT_REASON_LABELS</code>).
+      </p>
+      <Callout type='info' title='“It said Trip too short before — now it says Unavailable”'>
+        <p>
+          Different rules, different lists — both correct. On a{' '}
+          <strong>pickup</strong> list, times inside a blocked period are{' '}
+          <code>blocked</code> (&quot;Unavailable&quot;), and times whose
+          remaining free window can&apos;t fit a minimum trip are{' '}
+          <code>min-duration</code> (&quot;Trip too short&quot;). On a{' '}
+          <strong>return</strong> list, times before{' '}
+          <code>pickup + minRentalMinutes</code> are{' '}
+          <code>min-duration</code> too. The same wall-clock time can carry a
+          different reason depending on which endpoint you&apos;re picking —
+          hover the ⓘ to see which rule fired.
+        </p>
+      </Callout>
+      <p>
+        On the calendar, partially booked days carry a small{' '}
+        <strong>amber dot</strong> in the corner (token{' '}
+        <code>--bdp-warning</code>) — free hours remain, and the slot list
+        explains the blocked ones.
       </p>
 
       <h2>The anti-wipe contract, precisely</h2>

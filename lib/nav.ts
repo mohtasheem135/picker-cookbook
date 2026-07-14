@@ -121,6 +121,11 @@ export const NAV: NavGroup[] = [
         lead: 'Every export from the root entry and the /core subpath, with links to demos.',
       },
       {
+        slug: 'performance',
+        title: 'Performance & bundle size',
+        lead: 'Measured artifact sizes, dependency impact, engine benchmarks, and what to watch.',
+      },
+      {
         slug: 'limitations-and-troubleshooting',
         title: 'Limitations & troubleshooting',
         lead: 'What the package deliberately does not do, and fixes for common symptoms.',

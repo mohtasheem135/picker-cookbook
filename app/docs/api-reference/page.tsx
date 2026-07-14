@@ -52,6 +52,7 @@ export default function Page() {
           <tr><td><code>SingleDatePicker</code></td><td><code>DayKey | null</code></td><td><a href='/docs/single-date-picker'>single-date-picker</a></td></tr>
           <tr><td><code>DateOnlyRangePicker</code></td><td><code>{'DayRangeValue { from, to }'}</code></td><td><a href='/docs/date-only-range-picker'>date-only-range-picker</a></td></tr>
           <tr><td><code>SuggestionBanner</code></td><td>—</td><td><a href='/docs/suggestion-banner'>suggestion-banner</a></td></tr>
+          <tr><td><code>SLOT_REASON_LABELS</code></td><td>default disabled-slot hint text per reason</td><td><a href='/docs/day-states-and-anti-wipe'>day-states</a></td></tr>
         </tbody>
       </table>
 

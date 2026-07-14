@@ -67,6 +67,13 @@ export default function Page() {
           values stay UTC epochs (<a href='/docs/timezones'>proof</a>).
         </li>
         <li>
+          <strong>Day pick → time list.</strong> Selecting a pickup day
+          preselects the first valid time and shows the pickup slot list to
+          adjust it; selecting a return day does the same for return times.
+          The panel always shows the endpoint you can act on — clicking the
+          Pickup/Return trigger fields while open re-targets it explicitly.
+        </li>
+        <li>
           <strong>Persist on complete-and-valid.</strong>{' '}
           <code>onChange</code> gives you{' '}
           <code>{'meta: { complete, verdict }'}</code>. Persist when{' '}
@@ -98,6 +105,8 @@ export default function Page() {
           { name: 'onChange', type: '(value, { complete, verdict }) => void', description: 'Fires on every selection edit. verdict is null until the range is complete.', required: true },
           { name: 'valueFormat', type: "'epoch-ms' | 'epoch-seconds' | 'iso'", default: "'epoch-ms'", description: 'Wire format of value/onChange — pickup/ret arrive and leave in this format.' },
           { name: 'showFooter', type: 'boolean', default: 'true', description: 'The phase/duration + Clear/Done bar under the calendar.' },
+          { name: 'showSlotHints', type: 'boolean', default: 'true', description: 'The ⓘ hint next to disabled time slots explaining why (tooltip on hover, tap-popover on touch).' },
+          { name: 'slotHintLabels', type: 'Partial<Record<SlotDisabledReason, string>>', description: "Custom hint text per reason, e.g. { 'min-duration': 'Trips need 24h minimum' }. Unset reasons keep the defaults (SLOT_REASON_LABELS)." },
           { name: 'config', type: "Partial<Omit<EngineConfig, 'timeZone'>>", description: 'Engine overrides: minRentalMinutes, leadTimeMinutes, turnaroundMinutes, maxAdvanceDays, slotIntervalMinutes, window, now.' },
           { name: 'onIssues', type: '(issues: BlockParseIssue[]) => void', description: 'Malformed block reports — wire to error monitoring.' },
           { name: 'onOpenChange', type: '(open: boolean) => void', description: 'Fires on open/close — refetch availability on open.' },

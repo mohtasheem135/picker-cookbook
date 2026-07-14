@@ -21,8 +21,21 @@ a reason and the `onChange` counter does not move.
 
 ## The six slot reasons (`SlotDisabledReason`)
 
-`past` · `lead-time` · `blocked` · `min-duration` · `beyond-clamp` ·
-`outside-window` — every `Slot` carries `{ disabled, reason }`.
+`past` ("Already passed") · `lead-time` ("Too soon") · `blocked`
+("Unavailable") · `min-duration` ("Trip too short") · `beyond-clamp`
+("Conflicts with the next booking") · `outside-window` ("Outside the
+allowed period") — every `Slot` carries `{ disabled, reason }`; the quoted
+default hint texts are exported as `SLOT_REASON_LABELS` and customizable
+via `slotHintLabels` / hideable via `showSlotHints={false}`.
+
+Note: "Unavailable" vs "Trip too short" on the same wall-clock time is not
+a bug — `blocked` fires when the instant is inside a block; `min-duration`
+fires when the minimum trip can't fit. Pickup and return lists can
+legitimately show different reasons for the same time.
+
+Partially booked days show an amber corner dot (`--bdp-warning`). This was
+broken until 2026-07-15: the dot class referenced a nonexistent `bg-amber`
+token, which Tailwind silently dropped — partial days rendered unmarked.
 
 ## The anti-wipe contract
 

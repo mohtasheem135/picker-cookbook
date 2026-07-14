@@ -23,6 +23,7 @@ docs-in-parallel rule in [CLAUDE.md](../CLAUDE.md).
 | [server-side-validation.md](./server-side-validation.md) | Advanced | /core in a Route Handler, violation codes, deep links |
 | [recipes.md](./recipes.md) | Advanced | react-hook-form, refetch-on-open, URL projection, optimistic persist |
 | [api-reference.md](./api-reference.md) | Reference | Every export from root and /core, all types |
+| [performance.md](./performance.md) | Reference | Measured bundle sizes, dependency impact, engine benchmarks, render path |
 | [limitations-and-troubleshooting.md](./limitations-and-troubleshooting.md) | Reference | The 8 exclusions + symptom→cause→fix table |
 
 Process docs:

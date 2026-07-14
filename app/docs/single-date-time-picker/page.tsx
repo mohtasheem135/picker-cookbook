@@ -94,6 +94,8 @@ export default function Page() {
           { name: 'precision', type: "'slots' | 'minute'", default: "'slots'", description: '30-min slot column vs exact hour/minute selects.' },
           { name: 'rangeAnchor', type: 'FormattedInstant<F>', description: 'Fixed trip start — value becomes the trip END.' },
           { name: 'showFooter', type: 'boolean', default: 'true', description: 'The summary + Clear/Done bar under the calendar.' },
+          { name: 'showSlotHints', type: 'boolean', default: 'true', description: 'The ⓘ hint next to disabled slots explaining why.' },
+          { name: 'slotHintLabels', type: 'Partial<Record<SlotDisabledReason, string>>', description: 'Custom hint text per reason; unset reasons keep the defaults.' },
           { name: 'config', type: "Partial<Omit<EngineConfig, 'timeZone'>>", description: 'Merged over the singleInstantConfig preset (trip rules zeroed).' },
           { name: 'label', type: 'string', default: "'Date & time'", description: 'Trigger label.' },
           { name: 'placeholder', type: 'string', default: "'Add date & time'", description: 'Empty-state text.' },

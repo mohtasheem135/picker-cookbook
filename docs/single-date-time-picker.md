@@ -48,9 +48,10 @@ Defaults to the `singleInstantConfig` preset: trip rules zeroed; only window
 `timeZone`* · `value`* · `onChange(value, {verdict})`* ·
 `valueFormat: 'epoch-ms'|'epoch-seconds'|'iso'` · `blocks` ·
 `precision: 'slots'|'minute'` · `rangeAnchor` · `config` ·
-`showFooter` (default true — summary + Clear/Done bar) · `label` ·
-`placeholder` · `disabled`/`disabledReason` · `onIssues` · `onOpenChange` ·
-`mobileBreakpointPx` · `className`
+`showFooter` (default true — summary + Clear/Done bar) ·
+`showSlotHints` (default true) · `slotHintLabels` (per-reason hint text) ·
+`label` · `placeholder` · `disabled`/`disabledReason` · `onIssues` ·
+`onOpenChange` · `mobileBreakpointPx` · `className`
 
 ## Gotchas
 
