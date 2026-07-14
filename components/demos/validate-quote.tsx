@@ -40,10 +40,10 @@ export function ValidateQuote() {
   return (
     <div>
       <div style={{ display: 'flex', gap: 10 }}>
-        <button type='button' className='copy-button' style={{ color: '#1c1917', borderColor: '#d6cfc6' }} onClick={() => send('valid')}>
+        <button type='button' className='demo-button' onClick={() => send('valid')}>
           POST a valid range
         </button>
-        <button type='button' className='copy-button' style={{ color: '#1c1917', borderColor: '#d6cfc6' }} onClick={() => send('tampered')}>
+        <button type='button' className='demo-button' onClick={() => send('tampered')}>
           POST a range inside a block
         </button>
       </div>

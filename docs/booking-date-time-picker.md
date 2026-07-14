@@ -38,10 +38,13 @@ const [value, setValue] = useState<BookingValue>({ pickup: null, ret: null })
 ## Key props
 
 `blocks`* · `timeZone`* · `value`* · `onChange(value, {complete, verdict})`*
-· `config` · `onIssues` · `onOpenChange` · `labels` ·
-`trigger: 'fields'|'search-bar'` · `layout: 'row'|'column'` ·
-`disabled`/`disabledReason` · `showZoneAbbreviation: 'auto'|'always'|'never'`
-· `mobileBreakpointPx` (768) · `tabletBreakpointPx` (1024) · `className`
+· `valueFormat: 'epoch-ms' (default)|'epoch-seconds'|'iso'` (pickup/ret in
+this wire format, typed via `BookingValueOf<F>`) · `config` · `onIssues` ·
+`onOpenChange` · `labels` · `trigger: 'fields'|'search-bar'` ·
+`layout: 'row'|'column'` · `disabled`/`disabledReason` ·
+`showZoneAbbreviation: 'auto'|'always'|'never'` ·
+`showFooter` (default true — phase/duration + Clear/Done bar) ·
+`mobileBreakpointPx` (768) · `tabletBreakpointPx` (1024) · `className`
 
 ## Variations
 

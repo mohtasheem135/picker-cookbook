@@ -31,10 +31,24 @@ Defaults to the `singleInstantConfig` preset: trip rules zeroed; only window
 />
 ```
 
+## valueFormat — choose the wire format
+
+`valueFormat: 'epoch-ms' (default) | 'epoch-seconds' | 'iso'` — `value`,
+`onChange`, and `rangeAnchor` all speak this format (types follow via
+`FormattedInstant<F>`); engine math stays epoch ms internally. Demo:
+`components/demos/value-formats.tsx`.
+
+```tsx
+<SingleDateTimePicker valueFormat='iso' value={isoString}
+  onChange={next => setIso(next)} … />   // next: string | null
+```
+
 ## Key props
 
-`timeZone`* · `value`* · `onChange(value, {verdict})`* · `blocks` ·
-`precision: 'slots'|'minute'` · `rangeAnchor` · `config` · `label` ·
+`timeZone`* · `value`* · `onChange(value, {verdict})`* ·
+`valueFormat: 'epoch-ms'|'epoch-seconds'|'iso'` · `blocks` ·
+`precision: 'slots'|'minute'` · `rangeAnchor` · `config` ·
+`showFooter` (default true — summary + Clear/Done bar) · `label` ·
 `placeholder` · `disabled`/`disabledReason` · `onIssues` · `onOpenChange` ·
 `mobileBreakpointPx` · `className`
 

@@ -69,8 +69,10 @@ export default function Page() {
       <PropsTable
         rows={[
           { name: 'timeZone', type: 'string', description: 'IANA display zone.', required: true },
-          { name: 'value', type: '{ from: DayKey | null; to: DayKey | null }', description: 'Controlled range value.', required: true },
+          { name: 'value', type: '{ from: FormattedDay<F> | null; to: FormattedDay<F> | null }', description: "Controlled range value in the wire format ('yyyy-MM-dd' by default).", required: true },
           { name: 'onChange', type: '(value, { complete }) => void', description: 'complete is true once both ends are set.', required: true },
+          { name: 'valueFormat', type: "'day-key' | 'epoch-ms' | 'epoch-seconds' | 'iso'", default: "'day-key'", description: "Wire format of value/onChange. Instant formats encode each day's START in timeZone." },
+          { name: 'showFooter', type: 'boolean', default: 'true', description: 'The range summary + Clear/Done bar under the calendar.' },
           { name: 'window', type: '{ min?: Instant; max?: Instant }', description: 'Selectable bounds; each side replaces its now-derived default.' },
           { name: 'blocks', type: 'RawBlockInput[]', default: '[]', description: 'Fully-blocked days are unselectable and explain why on tap.' },
           { name: 'now', type: 'Instant', default: 'Date.now()', description: 'Injectable clock.' },

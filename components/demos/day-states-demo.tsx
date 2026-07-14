@@ -87,6 +87,7 @@ export function DayStatesDemo() {
               padding: '4px 8px',
               borderRadius: 6,
               border: '1px solid var(--line)',
+              color: '#1c1917', // chips keep light tints in dark mode too
               background:
                 status === 'available'
                   ? '#e9f7ef'

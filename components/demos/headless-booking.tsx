@@ -73,6 +73,7 @@ export function HeadlessBooking() {
                 borderRadius: 8,
                 cursor: 'pointer',
                 border: '1px solid var(--line)',
+                color: '#1c1917', // cells keep light tints in dark mode too
                 opacity: disabled ? 0.45 : 1,
                 textDecoration: status === 'blocked' ? 'line-through' : 'none',
                 background:
@@ -117,7 +118,8 @@ export function HeadlessBooking() {
                 padding: '4px 10px',
                 borderRadius: 999,
                 border: '1px solid var(--line-strong)',
-                background: slot.disabled ? 'var(--panel)' : '#fff',
+                color: 'var(--ink)',
+                background: slot.disabled ? 'var(--panel)' : 'var(--card)',
                 cursor: slot.disabled ? 'not-allowed' : 'pointer',
                 opacity: slot.disabled ? 0.5 : 1,
               }}

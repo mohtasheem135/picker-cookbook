@@ -81,8 +81,10 @@ export default function Page() {
       <PropsTable
         rows={[
           { name: 'timeZone', type: 'string', description: 'IANA display zone — decides where days begin/end.', required: true },
-          { name: 'value', type: 'DayKey | null', description: "'yyyy-MM-dd' string. Controlled.", required: true },
-          { name: 'onChange', type: '(value: DayKey | null) => void', description: 'Fires on pick (and clear).', required: true },
+          { name: 'value', type: 'FormattedDay<F> | null', description: "In the wire format ('yyyy-MM-dd' by default). Controlled.", required: true },
+          { name: 'onChange', type: '(value: FormattedDay<F> | null) => void', description: 'Fires on pick (and clear).', required: true },
+          { name: 'valueFormat', type: "'day-key' | 'epoch-ms' | 'epoch-seconds' | 'iso'", default: "'day-key'", description: "Wire format of value/onChange. Instant formats encode the day's START in timeZone." },
+          { name: 'showFooter', type: 'boolean', default: 'true', description: 'The selected-date + Clear bar under the calendar.' },
           { name: 'window', type: '{ min?: Instant; max?: Instant }', description: 'Selectable bounds; each side replaces its now-derived default.' },
           { name: 'blocks', type: 'RawBlockInput[]', default: '[]', description: 'Days fully covered by blocks become unselectable (with a reason).' },
           { name: 'now', type: 'Instant', default: 'Date.now()', description: 'Injectable clock — useful in tests and SSR snapshots.' },
@@ -97,6 +99,25 @@ export default function Page() {
 
       <h2>Variation — form validation</h2>
       <CodeBlock code={FORM_ERROR} title='with-form-error.tsx' />
+
+      <h2>Variation — epoch-seconds wire format, no footer</h2>
+      <p>
+        <code>valueFormat</code> switches what <code>value</code>/
+        <code>onChange</code> speak (see it live on the{' '}
+        <a href='/docs/single-date-time-picker'>SingleDateTimePicker page</a>),
+        and <code>showFooter=&#123;false&#125;</code> drops the summary/Clear
+        bar when your product supplies its own:
+      </p>
+      <CodeBlock
+        code={`<SingleDatePicker
+  timeZone={zone}
+  valueFormat='epoch-seconds'   // value/onChange are epoch seconds (day start)
+  value={seconds}
+  onChange={setSeconds}
+  showFooter={false}            // no summary/Clear bar
+/>`}
+        title='epoch-seconds-no-footer.tsx'
+      />
 
       <Callout type='warn' title='The classic off-by-one bug'>
         <p>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { SingleAnchor } from '@/components/demos/single-anchor'
 import { SingleMinute } from '@/components/demos/single-minute'
 import { SingleSlots } from '@/components/demos/single-slots'
+import { ValueFormats } from '@/components/demos/value-formats'
 import { Callout } from '@/components/site/callout'
 import { CodeBlock } from '@/components/site/code-block'
 import { DemoFrame } from '@/components/site/demo-frame'
@@ -66,15 +67,33 @@ export default function Page() {
         title='components/demos/single-anchor.tsx'
       />
 
+      <h2>Choose the wire format — valueFormat</h2>
+      <p>
+        By default values are epoch milliseconds. If your app speaks epoch
+        seconds or ISO-8601 strings, pass <code>valueFormat</code> and the
+        picker accepts <code>value</code> and emits <code>onChange</code> in
+        that format directly (types follow along). Internally the engine
+        still computes on epoch ms:
+      </p>
+      <DemoFrame hint='same pickers, two different wire formats'>
+        <ValueFormats />
+      </DemoFrame>
+      <CodeBlock
+        code={readDemoSource('value-formats.tsx')}
+        title='components/demos/value-formats.tsx'
+      />
+
       <h2>Props</h2>
       <PropsTable
         rows={[
           { name: 'timeZone', type: 'string', description: 'IANA display zone.', required: true },
-          { name: 'value', type: 'Instant | null', description: 'UTC epoch ms. Controlled.', required: true },
+          { name: 'value', type: 'FormattedInstant<F> | null', description: 'In the wire format (epoch ms by default). Controlled.', required: true },
           { name: 'onChange', type: '(value, { verdict }) => void', description: 'verdict is null when value is null; with rangeAnchor it validates the whole trip.', required: true },
+          { name: 'valueFormat', type: "'epoch-ms' | 'epoch-seconds' | 'iso'", default: "'epoch-ms'", description: 'Wire format of value/onChange/rangeAnchor.' },
           { name: 'blocks', type: 'RawBlockInput[]', default: '[]', description: 'Unavailable periods.' },
           { name: 'precision', type: "'slots' | 'minute'", default: "'slots'", description: '30-min slot column vs exact hour/minute selects.' },
-          { name: 'rangeAnchor', type: 'Instant', description: 'Fixed trip start — value becomes the trip END.' },
+          { name: 'rangeAnchor', type: 'FormattedInstant<F>', description: 'Fixed trip start — value becomes the trip END.' },
+          { name: 'showFooter', type: 'boolean', default: 'true', description: 'The summary + Clear/Done bar under the calendar.' },
           { name: 'config', type: "Partial<Omit<EngineConfig, 'timeZone'>>", description: 'Merged over the singleInstantConfig preset (trip rules zeroed).' },
           { name: 'label', type: 'string', default: "'Date & time'", description: 'Trigger label.' },
           { name: 'placeholder', type: 'string', default: "'Add date & time'", description: 'Empty-state text.' },

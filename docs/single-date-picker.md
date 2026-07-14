@@ -30,9 +30,17 @@ const selectionWindow = {
 
 ## Key props
 
-`timeZone`* · `value`* · `onChange`* · `window {min?, max?}` · `blocks` ·
-`now` · `label` · `placeholder` · `error` · `disabled`/`disabledReason` ·
-`mobileBreakpointPx` · `className`
+`timeZone`* · `value`* · `onChange`* ·
+`valueFormat: 'day-key' (default)|'epoch-ms'|'epoch-seconds'|'iso'` (instant
+formats encode the day's START in `timeZone`) · `window {min?, max?}` ·
+`blocks` · `now` · `label` · `placeholder` · `error` ·
+`showFooter` (default true — selected-date + Clear bar) ·
+`disabled`/`disabledReason` · `mobileBreakpointPx` · `className`
+
+```tsx
+<SingleDatePicker valueFormat='epoch-seconds' value={seconds}
+  onChange={setSeconds} showFooter={false} … />
+```
 
 ## Why the value is a string
 

@@ -35,9 +35,13 @@ toMs   = endOfDay(range.to, zone)    // 23:59:59.999 on the to-day
 
 ## Key props
 
-`timeZone`* · `value`* · `onChange(value, {complete})`* · `window` ·
-`blocks` · `now` · `labels {from?, to?}` · `disabled`/`disabledReason` ·
-`mobileBreakpointPx` (768) · `tabletBreakpointPx` (1024) · `className`
+`timeZone`* · `value`* · `onChange(value, {complete})`* ·
+`valueFormat: 'day-key' (default)|'epoch-ms'|'epoch-seconds'|'iso'` (typed
+via `DayRangeValueOf<F>`; instant formats encode each day's START) ·
+`window` · `blocks` · `now` · `labels {from?, to?}` ·
+`showFooter` (default true — range summary + Clear/Done bar) ·
+`disabled`/`disabledReason` · `mobileBreakpointPx` (768) ·
+`tabletBreakpointPx` (1024) · `className`
 
 ## Gotchas
 

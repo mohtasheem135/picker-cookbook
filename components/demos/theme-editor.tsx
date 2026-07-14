@@ -69,11 +69,12 @@ export function ThemeEditor() {
               padding: '5px 14px',
               borderRadius: 8,
               cursor: 'pointer',
+              color: 'var(--ink)',
               border:
                 theme === name
                   ? '2px solid var(--brand)'
                   : '1px solid var(--line-strong)',
-              background: theme === name ? 'var(--brand-pale)' : '#fff',
+              background: theme === name ? 'var(--brand-pale)' : 'var(--card)',
               fontWeight: theme === name ? 650 : 450,
             }}
           >

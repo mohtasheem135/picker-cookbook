@@ -7,6 +7,8 @@
   --ink-faint: #a8a29e;
   --paper: #fdfcfb;
   --panel: #f5f3f0;
+  --card: #ffffff;
+  --sidebar-bg: #faf8f6;
   --line: #e7e2dc;
   --line-strong: #d6cfc6;
   --brand: #1b5eff;
@@ -19,6 +21,41 @@
   --sidebar-w: 272px;
   --content-w: 800px;
   --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Dark theme: site variables plus the picker's --bdp-* tokens, so the live
+   demos retheme with the page (tokens must be on :root — the picker
+   popover/drawer portals to <body>). */
+:root[data-theme='dark'] {
+  --ink: #ede9e4;
+  --ink-soft: #b5aea7;
+  --ink-faint: #847d76;
+  --paper: #131211;
+  --panel: #1f1d1a;
+  --card: #191715;
+  --sidebar-bg: #161412;
+  --line: #2d2a26;
+  --line-strong: #3d3832;
+  --brand: #7a9dff;
+  --brand-pale: #1d2a4b;
+  --warn-bg: #2c2313;
+  --warn-line: #52401d;
+  --tip-bg: #13291c;
+  --tip-line: #234c33;
+
+  --bdp-card: #201e1b;
+  --bdp-foreground: #ede9e4;
+  --bdp-muted-foreground: #a29b93;
+  --bdp-accent: #2b2824;
+  --bdp-primary: #7a9dff;
+  --bdp-primary-dark: #5f85f2;
+  --bdp-primary-pale: #1d2a4b;
+  --bdp-border-muted: #3d3832;
+  --bdp-border-muted-strong: #4d4740;
+  --bdp-ring: #7a9dff;
+  --bdp-red-pale: #3d1d1d;
+  --bdp-destructive: #ff8a80;
+  --bdp-shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -73,7 +110,7 @@ a:hover {
   width: var(--sidebar-w);
   flex-shrink: 0;
   border-right: 1px solid var(--line);
-  background: #faf8f6;
+  background: var(--sidebar-bg);
   padding: 20px 16px 48px;
   position: sticky;
   top: 0;
@@ -81,6 +118,12 @@ a:hover {
   overflow-y: auto;
 }
 
+.sidebar-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-bottom: 10px;
+}
 .sidebar-brand {
   display: flex;
   gap: 10px;
@@ -88,8 +131,30 @@ a:hover {
   color: var(--ink);
   font-weight: 650;
   font-size: 15px;
-  padding: 6px 8px 18px;
+  padding: 6px 8px;
   line-height: 1.25;
+  min-width: 0;
+}
+.theme-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--brand);
 }
 .sidebar-brand:hover {
   text-decoration: none;
@@ -204,9 +269,10 @@ a:hover {
   margin-bottom: 6px;
 }
 
-.doc code,
-.doc td code,
-.doc dd code {
+/* Inline code only — MUST NOT match shiki's <pre><code>: a background on
+   that inline element fragments into a white box behind every rendered
+   line of the highlighted block. */
+.doc :not(pre) > code {
   font-family: var(--mono);
   font-size: 0.86em;
   background: var(--panel);
@@ -242,7 +308,7 @@ a:hover {
   border-radius: 14px;
   overflow: hidden;
   margin: 24px 0;
-  background: #fff;
+  background: var(--card);
 }
 .demo-frame-header {
   display: flex;
@@ -529,7 +595,7 @@ a:hover {
   border-radius: 12px;
   padding: 16px 18px;
   color: var(--ink);
-  background: #fff;
+  background: var(--card);
 }
 .home-card:hover {
   border-color: var(--brand);
@@ -588,8 +654,23 @@ a:hover {
   padding: 4px 8px;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
-  background: #fff;
+  background: var(--card);
+  color: var(--ink);
   width: 110px;
+}
+.demo-button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--line-strong);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+.demo-button:hover {
+  border-color: var(--brand);
 }
 .demo-note {
   font-size: 13px;

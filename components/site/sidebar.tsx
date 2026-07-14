@@ -4,21 +4,25 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { NAV } from '@/lib/nav'
+import { ThemeToggle } from './theme-toggle'
 
 export function Sidebar() {
   const pathname = usePathname()
 
   return (
     <nav className='sidebar' aria-label='Documentation'>
-      <Link href='/' className='sidebar-brand'>
-        <span className='sidebar-brand-mark' aria-hidden>
-          ▦
-        </span>
-        <span>
-          picker-cookbook
-          <small>availability-datetime-picker</small>
-        </span>
-      </Link>
+      <div className='sidebar-top'>
+        <Link href='/' className='sidebar-brand'>
+          <span className='sidebar-brand-mark' aria-hidden>
+            ▦
+          </span>
+          <span>
+            picker-cookbook
+            <small>availability-datetime-picker</small>
+          </span>
+        </Link>
+        <ThemeToggle />
+      </div>
       {NAV.map(group => (
         <div key={group.title} className='sidebar-group'>
           <p className='sidebar-group-title'>{group.title}</p>

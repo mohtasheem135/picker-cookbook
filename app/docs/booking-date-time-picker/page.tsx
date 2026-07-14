@@ -96,6 +96,8 @@ export default function Page() {
           { name: 'timeZone', type: 'string', description: "IANA zone of the resource's location. Display-only.", required: true },
           { name: 'value', type: 'BookingValue', description: '{ pickup, ret } — Instant | null each. Controlled.', required: true },
           { name: 'onChange', type: '(value, { complete, verdict }) => void', description: 'Fires on every selection edit. verdict is null until the range is complete.', required: true },
+          { name: 'valueFormat', type: "'epoch-ms' | 'epoch-seconds' | 'iso'", default: "'epoch-ms'", description: 'Wire format of value/onChange — pickup/ret arrive and leave in this format.' },
+          { name: 'showFooter', type: 'boolean', default: 'true', description: 'The phase/duration + Clear/Done bar under the calendar.' },
           { name: 'config', type: "Partial<Omit<EngineConfig, 'timeZone'>>", description: 'Engine overrides: minRentalMinutes, leadTimeMinutes, turnaroundMinutes, maxAdvanceDays, slotIntervalMinutes, window, now.' },
           { name: 'onIssues', type: '(issues: BlockParseIssue[]) => void', description: 'Malformed block reports — wire to error monitoring.' },
           { name: 'onOpenChange', type: '(open: boolean) => void', description: 'Fires on open/close — refetch availability on open.' },

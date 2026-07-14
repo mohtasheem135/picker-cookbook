@@ -78,6 +78,7 @@ export default function Page() {
           <tr><td><code>mergeBlocks(blocks)</code> <em>(/core only)</em></td><td>merge overlapping/adjacent intervals, sources retained</td></tr>
           <tr><td><code>suggestNearestWindow</code></td><td>nearest valid window (also a method on the engine)</td><td><a href='/docs/suggestion-banner'>suggestion-banner</a></td></tr>
           <tr><td><code>dateOnlyConfig / singleInstantConfig</code></td><td>presets that zero the trip rules</td><td><a href='/docs/engine-config'>engine-config</a></td></tr>
+          <tr><td><code>encodeInstant / decodeInstant / encodeDay / decodeDay</code></td><td>wire-format codecs behind the components&apos; <code>valueFormat</code> prop</td><td><a href='/docs/single-date-time-picker'>single-date-time-picker</a></td></tr>
           <tr><td><code>dayStart / endOfDay / nextDayStart*</code></td><td>DayKey + zone → boundary Instant</td><td rowSpan={4}><a href='/docs/timezones'>timezones</a></td></tr>
           <tr><td><code>instantToDayKey / localDateToDayKey / dayKeyToLocalDate / addDaysToKey</code></td><td>instant ↔ DayKey ↔ Date conversions</td></tr>
           <tr><td><code>formatDayLabel / formatTimeLabel / formatDayTimeLabel / formatZoneAbbreviation</code></td><td>zone-aware labels</td></tr>
@@ -112,6 +113,9 @@ export default function Page() {
           <tr><td><code>BookingWindow</code></td><td><code>{'{ pickup: Instant; ret: Instant }'}</code></td></tr>
           <tr><td><code>BookingValue</code></td><td><code>{'{ pickup: Instant | null; ret: Instant | null }'}</code></td></tr>
           <tr><td><code>DayValue / DayRangeValue</code></td><td><code>DayKey | null</code> / <code>{'{ from, to }'}</code></td></tr>
+          <tr><td><code>InstantValueFormat / DayValueFormat</code></td><td><code>&apos;epoch-ms&apos; | &apos;epoch-seconds&apos; | &apos;iso&apos;</code> / same + <code>&apos;day-key&apos;</code> — the <code>valueFormat</code> options</td></tr>
+          <tr><td><code>FormattedInstant&lt;F&gt; / FormattedDay&lt;F&gt;</code></td><td>the value&apos;s TS type in a given wire format</td></tr>
+          <tr><td><code>BookingValueOf&lt;F&gt; / DayRangeValueOf&lt;F&gt;</code></td><td>the composite values in a given wire format</td></tr>
         </tbody>
       </table>
 

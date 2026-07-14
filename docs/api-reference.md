@@ -34,7 +34,9 @@ engine.defaultRange(minutes?) / .suggestNearestWindow(desired)
 ## Functions
 
 `parseRawBlocks` · `suggestNearestWindow` · `dateOnlyConfig` /
-`singleInstantConfig` · zoned-day helpers (`dayStart`, `endOfDay`,
+`singleInstantConfig` · wire-format codecs `encodeInstant` /
+`decodeInstant` / `encodeDay` / `decodeDay` (behind the components'
+`valueFormat` prop) · zoned-day helpers (`dayStart`, `endOfDay`,
 `instantToDayKey`, `localDateToDayKey`, `dayKeyToLocalDate`, `addDaysToKey`,
 `wallTimeToInstant`, `wallTimeParts`, `formatDayLabel`, `formatTimeLabel`,
 `formatDayTimeLabel`, `formatZoneAbbreviation`).
@@ -51,7 +53,9 @@ engine.defaultRange(minutes?) / .suggestNearestWindow(desired)
 freeWindows }` · `Slot { instant, label, disabled, reason? }` ·
 `SlotDisabledReason` (6) · `Verdict` · `Violation` / `ViolationCode` (7) ·
 `BookingWindow { pickup, ret }` · `BookingValue` · `DayValue` /
-`DayRangeValue`
+`DayRangeValue` · `InstantValueFormat` / `DayValueFormat` ·
+`FormattedInstant<F>` / `FormattedDay<F>` · `BookingValueOf<F>` /
+`DayRangeValueOf<F>`
 
 ## Package facts
 
