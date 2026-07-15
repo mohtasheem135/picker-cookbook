@@ -16,12 +16,11 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-The package source lives in the sibling folder
-`../availability-datetime-picker/`; this app installs its packed tarball
-(`../availability-datetime-picker/availability-datetime-picker-0.1.0.tgz`),
-so it consumes exactly
-what npm consumers get: only `dist/`, the real exports map, the shipped
-types.
+The package is installed from the public npm registry — this app consumes
+exactly what every npm user gets. (During pre-release development it
+consumed the packed tarball from the sibling
+`../availability-datetime-picker/` source folder; see CLAUDE.md for that
+local-testing workflow.)
 
 ## Layout
 
