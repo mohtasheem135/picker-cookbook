@@ -4,3 +4,8 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# Agent skills installed via `npx skills` (personal; not committed)
+.claude/skills/
+skills-lock.json
+.claude/settings.local.json
