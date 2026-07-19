@@ -9,7 +9,7 @@ import { DocPage } from '@/components/site/doc-page'
 import { PropsTable } from '@/components/site/props-table'
 import { readDemoSource } from '@/lib/source'
 
-export const metadata: Metadata = { title: 'BookingDateTimePicker' }
+export const metadata: Metadata = { title: 'DateTimeRangePicker' }
 
 const DEFAULT_RANGE = `import { createAvailabilityEngine } from 'availability-datetime-picker/core'
 
@@ -20,7 +20,7 @@ const [value, setValue] = useState<BookingValue>(
   initial ?? { pickup: null, ret: null },
 )`
 
-const REFRESH_ON_OPEN = `<BookingDateTimePicker
+const REFRESH_ON_OPEN = `<DateTimeRangePicker
   // Availability can change while the page is open — refetch when the
   // picker opens so the user always books against fresh blocks.
   onOpenChange={open => { if (open) refetchBlocks() }}
@@ -33,7 +33,7 @@ const REFRESH_ON_OPEN = `<BookingDateTimePicker
 
 export default function Page() {
   return (
-    <DocPage slug='booking-date-time-picker'>
+    <DocPage slug='date-time-range-picker'>
       <p>
         The flagship component: a trip range with pickup and return times on
         a 30-minute grid, availability-aware end to end. Desktop gets a

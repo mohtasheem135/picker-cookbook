@@ -10,7 +10,7 @@ Live page: `/docs/api-reference`
 
 ## Components
 
-`BookingDateTimePicker` (BookingValue) · `SingleDateTimePicker`
+`DateTimeRangePicker` (BookingValue) · `SingleDateTimePicker`
 (Instant|null) · `SingleDatePicker` (DayKey|null) · `DateOnlyRangePicker`
 (DayRangeValue) · `SuggestionBanner` · `SLOT_REASON_LABELS` (default
 disabled-slot hint text per reason)
@@ -55,7 +55,7 @@ freeWindows }` · `Slot { instant, label, disabled, reason? }` ·
 `SlotDisabledReason` (6) · `Verdict` · `Violation` / `ViolationCode` (7) ·
 `BookingWindow { pickup, ret }` · `BookingValue` · `DayValue` /
 `DayRangeValue` · `InstantValueFormat` / `DayValueFormat` ·
-`FormattedInstant<F>` / `FormattedDay<F>` · `BookingValueOf<F>` /
+`FormattedInstant<F>` / `FormattedDay<F>` · `DateTimeRangeValueOf<F>` /
 `DayRangeValueOf<F>`
 
 ## Package facts

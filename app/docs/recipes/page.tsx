@@ -38,7 +38,7 @@ const REFRESH = `// Availability changes while the page sits open. Refetch when 
 // re-derives day states and slots on the next render.
 const { data: blocks = [], refetch } = useQuery(['blocks', carId], fetchBlocks)
 
-<BookingDateTimePicker
+<DateTimeRangePicker
   blocks={blocks}
   onOpenChange={open => { if (open) refetch() }}
   onIssues={issues => monitoring.report('bad-blocks', { carId, issues })}
@@ -49,7 +49,7 @@ const URL_STATE = `// URL as a projection of state: write only COMPLETE, VALID r
 // URL; keep in-progress picking in local state; read the URL once on mount.
 const [value, setValue] = useState<BookingValue>(() => readFromUrl())
 
-<BookingDateTimePicker
+<DateTimeRangePicker
   value={value}
   onChange={(next, { complete, verdict }) => {
     setValue(next)                          // local state: every keystroke

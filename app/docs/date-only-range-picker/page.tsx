@@ -89,7 +89,7 @@ export default function Page() {
         <li>
           This is a <strong>date</strong> range — if the product needs
           pickup/return <em>times</em>, use{' '}
-          <a href='/docs/booking-date-time-picker'>BookingDateTimePicker</a>{' '}
+          <a href='/docs/date-time-range-picker'>DateTimeRangePicker</a>{' '}
           instead of bolting times onto this one.
         </li>
         <li>

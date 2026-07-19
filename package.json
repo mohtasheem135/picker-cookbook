@@ -7,10 +7,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "use:local": "node scripts/use-local.mjs",
+    "use:npm": "node scripts/use-npm.mjs",
+    "use:status": "node scripts/use-status.mjs",
+    "check:registry-dep": "node scripts/check-registry-dep.mjs",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
-    "availability-datetime-picker": "^0.1.0",
+    "availability-datetime-picker": "^1.0.0",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -85,7 +85,7 @@ export default function Page() {
       <h2>Inside the booking flow</h2>
       <p>
         You rarely wire this by hand in a booking UI —{' '}
-        <code>BookingDateTimePicker</code> shows it automatically when the
+        <code>DateTimeRangePicker</code> shows it automatically when the
         value is invalid, and the headless hook exposes the same pieces:
       </p>
       <CodeBlock code={HOOK_INTEGRATION} title='with-use-booking-picker.tsx' />

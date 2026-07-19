@@ -14,7 +14,7 @@ const MEMO = `// The engine rebuilds whenever \`blocks\` or \`config\` change ID
 const blocks = useMemo(() => mapApiBlocks(data), [data])
 const config = useMemo(() => ({ minRentalMinutes: 1440 }), [])
 
-<BookingDateTimePicker blocks={blocks} config={config} … />`
+<DateTimeRangePicker blocks={blocks} config={config} … />`
 
 export default function Page() {
   return (

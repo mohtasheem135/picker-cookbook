@@ -74,7 +74,7 @@ export default function Page() {
           values, zones, and blocks that prevent almost every bug.
         </li>
         <li>
-          <a href='/docs/booking-date-time-picker'>BookingDateTimePicker</a> —
+          <a href='/docs/date-time-range-picker'>DateTimeRangePicker</a> —
           the full pickup/return booking flow.
         </li>
       </ul>

@@ -21,7 +21,7 @@ units in the submit handler, never in the field.
 ## Refresh availability on open
 
 ```tsx
-<BookingDateTimePicker
+<DateTimeRangePicker
   blocks={blocks}
   onOpenChange={open => { if (open) refetch() }}
   onIssues={issues => monitoring.report('bad-blocks', issues)} />
