@@ -46,5 +46,5 @@ via `DayRangeValueOf<F>`; instant formats encode each day's START) ·
 ## Gotchas
 
 - Picking a day before the current `from` restarts the range there.
-- Need pickup/return *times*? Use `BookingDateTimePicker` instead.
+- Need pickup/return *times*? Use `DateTimeRangePicker` instead.
 - History filters: pass `window={{ min: 0 }}` to open the past.

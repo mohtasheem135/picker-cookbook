@@ -38,7 +38,7 @@ const suggestion = engine.suggestNearestWindow(desired)
 
 ## Notes
 
-- Inside `BookingDateTimePicker` the banner is automatic;
+- Inside `DateTimeRangePicker` the banner is automatic;
   `useBookingPicker` exposes `suggestion` + `applySuggestion` for custom UIs.
 - `suggestNearestWindow` returns `null` when nothing fits within the
   horizon — render a plain unavailable state then.

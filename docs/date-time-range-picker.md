@@ -1,6 +1,6 @@
-# BookingDateTimePicker
+# DateTimeRangePicker
 
-Live page: `/docs/booking-date-time-picker` · Demos:
+Live page: `/docs/date-time-range-picker` · Demos:
 `components/demos/trip-picker.tsx`, `booking-search-bar.tsx`
 
 ## What it demonstrates
@@ -28,7 +28,7 @@ availability enforced while picking. Desktop two-month popover; drawer under
 ```tsx
 const [value, setValue] = useState<BookingValue>({ pickup: null, ret: null })
 
-<BookingDateTimePicker
+<DateTimeRangePicker
   blocks={blocks}
   timeZone='America/New_York'
   value={value}
@@ -44,7 +44,7 @@ const [value, setValue] = useState<BookingValue>({ pickup: null, ret: null })
 
 `blocks`* · `timeZone`* · `value`* · `onChange(value, {complete, verdict})`*
 · `valueFormat: 'epoch-ms' (default)|'epoch-seconds'|'iso'` (pickup/ret in
-this wire format, typed via `BookingValueOf<F>`) · `config` · `onIssues` ·
+this wire format, typed via `DateTimeRangeValueOf<F>`) · `config` · `onIssues` ·
 `onOpenChange` · `labels` · `trigger: 'fields'|'search-bar'` ·
 `layout: 'row'|'column'` · `disabled`/`disabledReason` ·
 `showZoneAbbreviation: 'auto'|'always'|'never'` ·

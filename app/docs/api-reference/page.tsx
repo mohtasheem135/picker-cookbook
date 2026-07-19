@@ -47,7 +47,7 @@ export default function Page() {
       <table>
         <thead><tr><th>Export</th><th>Value type</th><th>Demo</th></tr></thead>
         <tbody>
-          <tr><td><code>BookingDateTimePicker</code></td><td><code>{'BookingValue { pickup, ret }'}</code></td><td><a href='/docs/booking-date-time-picker'>booking-date-time-picker</a></td></tr>
+          <tr><td><code>DateTimeRangePicker</code></td><td><code>{'BookingValue { pickup, ret }'}</code></td><td><a href='/docs/date-time-range-picker'>date-time-range-picker</a></td></tr>
           <tr><td><code>SingleDateTimePicker</code></td><td><code>Instant | null</code></td><td><a href='/docs/single-date-time-picker'>single-date-time-picker</a></td></tr>
           <tr><td><code>SingleDatePicker</code></td><td><code>DayKey | null</code></td><td><a href='/docs/single-date-picker'>single-date-picker</a></td></tr>
           <tr><td><code>DateOnlyRangePicker</code></td><td><code>{'DayRangeValue { from, to }'}</code></td><td><a href='/docs/date-only-range-picker'>date-only-range-picker</a></td></tr>
@@ -116,7 +116,7 @@ export default function Page() {
           <tr><td><code>DayValue / DayRangeValue</code></td><td><code>DayKey | null</code> / <code>{'{ from, to }'}</code></td></tr>
           <tr><td><code>InstantValueFormat / DayValueFormat</code></td><td><code>&apos;epoch-ms&apos; | &apos;epoch-seconds&apos; | &apos;iso&apos;</code> / same + <code>&apos;day-key&apos;</code> — the <code>valueFormat</code> options</td></tr>
           <tr><td><code>FormattedInstant&lt;F&gt; / FormattedDay&lt;F&gt;</code></td><td>the value&apos;s TS type in a given wire format</td></tr>
-          <tr><td><code>BookingValueOf&lt;F&gt; / DayRangeValueOf&lt;F&gt;</code></td><td>the composite values in a given wire format</td></tr>
+          <tr><td><code>DateTimeRangeValueOf&lt;F&gt; / DayRangeValueOf&lt;F&gt;</code></td><td>the composite values in a given wire format</td></tr>
         </tbody>
       </table>
 

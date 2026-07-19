@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import {
-  BookingDateTimePicker,
+  DateTimeRangePicker,
   type BookingValue,
 } from 'availability-datetime-picker'
 
@@ -82,7 +82,7 @@ export function ThemeEditor() {
           </button>
         ))}
       </div>
-      <BookingDateTimePicker
+      <DateTimeRangePicker
         blocks={blocks}
         timeZone='America/New_York'
         value={value}

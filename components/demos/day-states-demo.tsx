@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import {
-  BookingDateTimePicker,
+  DateTimeRangePicker,
   addDaysToKey,
   createAvailabilityEngine,
   instantToDayKey,
@@ -49,7 +49,7 @@ export function DayStatesDemo() {
   return (
     <div>
       <div style={{ maxWidth: 460 }}>
-        <BookingDateTimePicker
+        <DateTimeRangePicker
           blocks={blocks}
           timeZone={ZONE}
           value={value}

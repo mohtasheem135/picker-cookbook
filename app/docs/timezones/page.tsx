@@ -24,7 +24,7 @@ const HELPERS = `import {
 
 const WHICH_ZONE = `// Pass the RESOURCE's zone, not the viewer's: the user books the car in
 // the car's local time. 10:00 AM means 10:00 AM where the car is parked.
-<BookingDateTimePicker timeZone={car.timeZone} … />
+<DateTimeRangePicker timeZone={car.timeZone} … />
 
 // showZoneAbbreviation='auto' (default) tags times with CDT/PST/etc. only
 // when the viewer's device zone differs from the resource's zone.`

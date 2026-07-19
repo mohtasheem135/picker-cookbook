@@ -4,7 +4,7 @@ import { CopyButton } from './copy-button'
 
 interface CodeBlockProps {
   code: string
-  lang?: 'tsx' | 'ts' | 'css' | 'bash' | 'json'
+  lang?: 'tsx' | 'ts' | 'css' | 'bash' | 'json' | 'markdown'
   /** Filename or short caption shown in the block header. */
   title?: string
 }

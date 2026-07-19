@@ -26,6 +26,11 @@ export const NAV: NavGroup[] = [
         lead: 'Install the package, load the stylesheet once, render your first picker.',
       },
       {
+        slug: 'for-agents',
+        title: 'Using with AI agents',
+        lead: 'Paste-ready install, API, config, and gotchas for Claude Code and other coding agents — plus /llms.txt and /llms-full.txt.',
+      },
+      {
         slug: 'core-concepts',
         title: 'Core concepts',
         lead: 'The five facts about values, zones, and blocks that every other page builds on.',
@@ -36,8 +41,8 @@ export const NAV: NavGroup[] = [
     title: 'Components',
     pages: [
       {
-        slug: 'booking-date-time-picker',
-        title: 'BookingDateTimePicker',
+        slug: 'date-time-range-picker',
+        title: 'DateTimeRangePicker',
         lead: 'Trip range with pickup and return times — the flagship booking flow.',
       },
       {
@@ -59,6 +64,11 @@ export const NAV: NavGroup[] = [
         slug: 'suggestion-banner',
         title: 'SuggestionBanner',
         lead: 'Offer the nearest available window instead of a dead error.',
+      },
+      {
+        slug: 'playground',
+        title: 'Playground',
+        lead: 'Flip every prop live — including valueFormat — and watch the code and the returned value update.',
       },
     ],
   },

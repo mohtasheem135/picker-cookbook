@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuse to push while the local-package tarball is installed.
+# Enabled via `git config core.hooksPath .githooks` (run by npm's `prepare`).
+exec node "$(dirname "$0")/../scripts/check-registry-dep.mjs"

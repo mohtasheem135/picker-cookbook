@@ -60,13 +60,39 @@ Concretely:
 
 - `npm run dev` — local docs site
 - `npm run build` — production build; also the SSR/RSC gate for the package
-- `npm run typecheck` — TS against the tarball's shipped types
+- `npm run typecheck` — TS against the shipped types of whichever package
+  mode is active
 
-The dependency normally tracks the published registry version (`^x.y.z`) —
-required for Vercel deploys, where the sibling folder doesn't exist. To
-test UNPUBLISHED package changes locally: `npm pack` in
-`../availability-datetime-picker`, temporarily point the dependency at
-`file:../availability-datetime-picker/availability-datetime-picker-<ver>.tgz`,
-`rm -rf node_modules package-lock.json && npm install`, verify, then
-restore the registry version before pushing (a `file:` dep on GitHub breaks
-the deploy). Log every such verification in `docs/TEST-LOG.md`.
+## Switching between the local and published package
+
+The committed dependency **always** tracks the published registry range
+(`^x.y.z`) — Vercel builds this repo on its own, where the sibling folder
+does not exist, so a `file:` dep in `package.json` breaks the deploy.
+
+To test UNPUBLISHED package changes, never edit the dependency by hand:
+
+- `npm run use:local` — builds + packs `../availability-datetime-picker` and
+  installs the tarball with `--no-save`. **Neither `package.json` nor
+  `package-lock.json` is modified**, so the switch is node_modules-only and
+  physically cannot reach a deploy. Then use `npm run dev`/`build`/
+  `typecheck` as normal.
+- `npm run use:npm` — `npm ci` back to the registry package.
+- `npm run use:status` — prints which package is currently installed. Local
+  mode is invisible to git by design, so this is the only way to tell.
+
+Re-run `npm run use:local` after each package change (it re-packs). A plain
+`npm install` silently reverts to the registry copy.
+
+Why a tarball and not a path alias or symlink: the tarball is what an npm
+consumer actually receives, so it exercises the exports map, the
+`fix-extensions` rewrite and the `'use client'` directives. It also ships no
+`node_modules`, which keeps React single — a symlink or a `file:` *directory*
+dep resolves the package's own devDependency React and every hook throws
+"Invalid hook call". (Turbopack's `turbopack.resolveAlias` is not an option
+here: it resolves relative paths against the importing file, rejects absolute
+paths, and **silently falls back** to node_modules when the target misses —
+a build that looks fine while using the wrong package.)
+
+`scripts/check-registry-dep.mjs` runs on pre-push (via `.githooks`, wired by
+npm's `prepare`) and refuses to push a `file:`/link dependency. Log every
+package verification in `docs/TEST-LOG.md`.

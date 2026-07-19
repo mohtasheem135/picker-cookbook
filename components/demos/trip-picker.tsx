@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import {
-  BookingDateTimePicker,
+  DateTimeRangePicker,
   type BookingValue,
 } from 'availability-datetime-picker'
 
@@ -18,7 +18,7 @@ export function TripPicker() {
 
   return (
     <div style={{ maxWidth: 460 }}>
-      <BookingDateTimePicker
+      <DateTimeRangePicker
         blocks={blocks}
         timeZone={ZONE}
         value={value}

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import {
-  BookingDateTimePicker,
+  DateTimeRangePicker,
   type BookingValue,
 } from 'availability-datetime-picker'
 
@@ -78,7 +78,7 @@ export function ConfigPlayground() {
           />
         </label>
       </div>
-      <BookingDateTimePicker
+      <DateTimeRangePicker
         blocks={blocks}
         timeZone={ZONE}
         value={value}

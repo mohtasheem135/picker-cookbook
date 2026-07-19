@@ -19,7 +19,7 @@ export default function HomePage() {
           <Link className='primary' href='/docs/installation'>
             Get started
           </Link>
-          <Link className='secondary' href='/docs/booking-date-time-picker'>
+          <Link className='secondary' href='/docs/date-time-range-picker'>
             See the booking picker
           </Link>
         </div>
